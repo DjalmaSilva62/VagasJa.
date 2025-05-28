@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minhas Vagas</title>
+</head>
+<body>
+    <h1>Minhas Vagas</h1>
+
+    <a href="{{ url_for('nova_vaga') }}">Cadastrar nova vaga</a><br><br>
+
+    {% for vaga in vagas %}
+        <div style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
+            <h3>{{ vaga.titulo }}</h3>
+            <p>{{ vaga.descricao }}</p>
+        </div>
+    {% else %}
+        <p>Você ainda não cadastrou nenhuma vaga.</p>
+    {% endfor %}
+
+    <a href="{{ url_for('dashboard') }}">Voltar ao Dashboard</a>
+</body>
+</html>

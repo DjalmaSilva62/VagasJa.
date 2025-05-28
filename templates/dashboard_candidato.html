@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Candidato</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Informações Pessoais</h2>
+    <form method="POST" action="/candidato/curriculo" enctype="multipart/form-data">
+        <input type="text" name="nome" placeholder="Nome completo" required>
+        <input type="text" name="cidade" placeholder="Cidade">
+        <input type="text" name="telefone" placeholder="Telefone">
+        <input type="date" name="nascimento">
+        Foto de Perfil: <input type="file" name="foto" accept="image/*">
+        Currículo (PDF): <input type="file" name="arquivo" accept=".pdf">
+        <button type="submit">Enviar Currículo</button>
+    </form>
+
+    <hr>
+
+    
+    <ul>
+        {% for vaga in vagas %}
+            <li>
+                <strong>{{ vaga.titulo }}</strong><br>
+                {{ vaga.descricao }}<br>
+                <a href="{{ url_for('ver_vaga', vaga_id=vaga.id) }}">Ver Detalhes</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <form action="/logout">
+        <button type="submit">Sair</button>
+    </form>
+</div>
+</body>
+</html>

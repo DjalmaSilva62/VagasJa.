@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel do Administrador</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Painel do Administrador</h2>
+        <p>Bem-vindo, {{ session['admin_username'] }}!</p>
+
+        <ul>
+            <li><a href="#">Gerenciar Usuários</a></li>
+            <li><a href="#">Gerenciar Vagas</a></li>
+            <li><a href="{{ url_for('admin_logout') }}">Sair</a></li>
+        </ul>
+    </div>
+</body>
+</html>

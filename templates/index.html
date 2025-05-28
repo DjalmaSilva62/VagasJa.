@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>VagasJá</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+          <div class="logo">
+            <h1>VagasJá</h1>
+            <p class="subtitulo">Conectando talentos às melhores oportunidades</p>
+          </div>
+          <nav class="nav-links">
+            <a href="{{ url_for('login_sistema') }}">Login</a>
+            <a href="{{ url_for('register') }}">Cadastre-se</a>
+          </nav>
+        </div>
+    </header>
+       
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Encontre a vaga ideal para você</h2>
+            </div>
+        </section>
+
+        <section class="vagas">
+            <div class="container">
+                <h2>Vagas Recentes</h2>
+                <ul>
+                    {% for vaga in vagas %}
+                    <li>
+                        <h3>{{ vaga.titulo }}</h3>
+                        <p>{{ vaga.descricao }}</p>
+                        <a href="{{ url_for('ver_vaga', vaga_id=vaga.id) }}">Ver detalhes</a>
+
+                    </li>
+                    {% else %}
+                    <li>Nenhuma vaga disponível no momento.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Plataforma de Empregos. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

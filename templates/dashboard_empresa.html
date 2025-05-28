@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Empresa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Perfil da Empresa</h2>
+    <form method="POST" action="/empresa/perfil" enctype="multipart/form-data">
+        <input type="text" name="nome" placeholder="Nome da Empresa" required>
+        <input type="text" name="cidade" placeholder="Cidade">
+        Logo da Empresa: <input type="file" name="logo" accept="image/*">
+        <button type="submit">Salvar Perfil</button>
+    </form>
+
+    <hr>
+
+    <h2>Publicar Vaga</h2>
+    <form method="POST" action="/empresa/vagas">
+        <input type="text" name="titulo" placeholder="Título da Vaga" required>
+        <textarea name="descricao" placeholder="Descrição da Vaga" rows="5" required></textarea>
+        <button type="submit">Publicar Vaga</button>
+    </form>
+
+    <hr>
+    <form action="/logout">
+        <button type="submit">Sair</button>
+    </form>
+</div>
+</body>
+</html>

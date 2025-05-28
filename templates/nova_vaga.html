@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nova Vaga</title>
+</head>
+<body>
+    <h1>Nova Vaga de Emprego</h1>
+    <form method="POST">
+        <label for="titulo">Título:</label><br>
+        <input type="text" id="titulo" name="titulo" required><br><br>
+
+        <label for="descricao">Descrição:</label><br>
+        <textarea id="descricao" name="descricao" rows="5" required></textarea><br><br>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('dashboard') }}">Voltar ao Dashboard</a>
+</body>
+</html>

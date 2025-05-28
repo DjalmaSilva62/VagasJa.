@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro</h1>
+        <form method="post">
+            <input type="email" name="email" placeholder="Seu e-mail" required>
+            <input type="password" name="password" placeholder="Crie uma senha" required>
+            <select name="tipo" required>
+                <option value="" disabled selected>Selecione o tipo de conta</option>
+                <option value="candidato">Candidato</option>
+                <option value="empresa">Empresa</option>
+            </select>
+            <button type="submit">Cadastrar</button>
+        </form>
+        <p><a href="{{ url_for('login_sistema') }}">Já tem conta? Faça login</a></p>
+    </div>
+</body>
+</html>
